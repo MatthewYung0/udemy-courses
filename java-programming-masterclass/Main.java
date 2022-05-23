@@ -2,14 +2,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MobilePhone newPhone = new MobilePhone("111");
+        Bank bank = new Bank("National Australia Bank");
 
-        Contact newContact1 = Contact.createContact("Matthew", "0708921425");
-        newPhone.addNewContact(newContact1);
-        newPhone.printContacts();
-        Contact newContact2 = Contact.createContact("Matthew", "0708921425");
-        newPhone.addNewContact(newContact2);
-        newPhone.printContacts();
+        bank.addBranch("Adelaide");
+
+        bank.addCustomer("Adelaide", "Tim", 50.05);
+        bank.addCustomer("Adelaide", "Mike", 175.34);
+        bank.addCustomer("Adelaide", "Percy", 220.12);
+
+        bank.addCustomerTransaction("Adelaide", "Tim", 44.22);
+        bank.addCustomerTransaction("Adelaide", "Tim", 12.44);
+        bank.addCustomerTransaction("Adelaide", "Mike", 1.65);
+
+        bank.listCustomers("Adelaide", true);
 
     }
 
