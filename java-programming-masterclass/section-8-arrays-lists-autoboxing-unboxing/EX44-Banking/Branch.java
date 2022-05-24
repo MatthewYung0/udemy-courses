@@ -19,9 +19,18 @@ public class Branch {
     }
 
     public boolean newCustomer(String customerName, double transaction) {
-        Customer customer = findCustomer(customerName);
-        if (customer != null) {
-            customer.addTransaction(transaction);
+        if (findCustomer(customerName) == null) {
+            Customer newCustomer = new Customer(customerName, transaction);
+            customers.add(newCustomer);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addCustomerTransaction(String customerName, double transaction) {
+        Customer newCustomer = findCustomer(customerName);
+        if (newCustomer != null) {
+            newCustomer.addTransaction(transaction);
             return true;
         }
         return false;

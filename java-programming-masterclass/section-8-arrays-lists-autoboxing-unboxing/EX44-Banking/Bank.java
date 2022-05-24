@@ -11,16 +11,17 @@ public class Bank {
     }
 
     public boolean addBranch(String branchName) {
-        if (findBranch(branchName) != null) {
-            branches.add(findBranch(branchName));
+        Branch newBranch = new Branch(branchName);
+        if (findBranch(branchName) == null) {
+            branches.add(newBranch);
             return true;
         }
         return false;
     }
 
     public boolean addCustomer(String branchName, String customerName, double transaction) {
-        Branch branch = findBranch(branchName);
-        if (branch != null) {
+        if (findBranch(branchName) != null) {
+            Branch branch = findBranch(branchName);
             for (int i = 0; i < branch.getCustomers().size(); i++) {
                 if (branch.getCustomers().get(i).getName().equals(customerName)) {
                     return false;
@@ -28,13 +29,16 @@ public class Bank {
             }
             branch.newCustomer(customerName, transaction);
             return true;
+        } else if (findBranch(branchName) == null) {
+            Branch newBranch = new Branch(branchName);
+            newBranch.newCustomer(customerName,transaction);
         }
         return false;
     }
 
     public boolean addCustomerTransaction(String branchName, String customerName, double transaction) {
         Branch branch = findBranch(branchName);
-        if (findBranch(branchName) != null) {
+        if (branch != null) {
             for (int i = 0; i < branch.getCustomers().size(); i++) {
                 if (branch.getCustomers().get(i).getName().equals(customerName)) {
                     branch.getCustomers().get(i).addTransaction(transaction);
@@ -50,16 +54,18 @@ public class Bank {
         Branch branch = findBranch(branchName);
         if (branch != null) {
             System.out.println("Customer details for branch " + branchName);
+            int customerNumber = 1;
             for (int i = 0; i < branch.getCustomers().size(); i++) {
-                int customerNumber = 1;
                 System.out.println("Customer: " + branch.getCustomers().get(i).getName() + "[" + customerNumber + "]");
                 if (transaction) {
+                    int transactionNumber = 1;
                     System.out.println("Transactions");
                     for (int j = 0; j < branch.getCustomers().get(i).getTransactions().size(); j++) {
-                        int transactionNumber = 1;
                         System.out.println("[" + transactionNumber + "]  Amount " + branch.getCustomers().get(i).getTransactions().get(j));
+                        transactionNumber++;
                     }
                 }
+                customerNumber++;
             }
             return true;
         }

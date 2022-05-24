@@ -8,6 +8,7 @@ public class Customer {
     public Customer(String name, double transaction) {
         this.name = name;
         this.transactions = new ArrayList<Double>();
+        transactions.add(transaction);
     }
 
     public String getName() {
@@ -19,6 +20,6 @@ public class Customer {
     }
 
     public void addTransaction(double transaction) {
-
+        transactions.add(transaction);
     }
 }

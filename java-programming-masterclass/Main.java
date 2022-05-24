@@ -6,8 +6,11 @@ public class Main {
 
         bank.addBranch("Adelaide");
 
+        bank.addCustomer("Sydney", "Tim", 50.05);
+
         bank.addCustomer("Adelaide", "Tim", 50.05);
         bank.addCustomer("Adelaide", "Mike", 175.34);
+        bank.addCustomer("Adelaide", "Tim", 50.05);
         bank.addCustomer("Adelaide", "Percy", 220.12);
 
         bank.addCustomerTransaction("Adelaide", "Tim", 44.22);
