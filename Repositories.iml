@@ -7,6 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/java-programming-masterclass/section-8-arrays-lists-autoboxing-unboxing/EX44-MobilePhone" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java-programming-masterclass/section-8-arrays-lists-autoboxing-unboxing/EX45-Banking" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/java-programming-masterclass/section-8-arrays-lists-autoboxing-unboxing/EX46-Playlist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java-programming-masterclass/section-9-inner_classes-abstract_class-interfaces/EX47-Interface" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java-programming-masterclass/section-9-inner_classes-abstract_class-interfaces/EX48-Playlist_InnerClass" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
