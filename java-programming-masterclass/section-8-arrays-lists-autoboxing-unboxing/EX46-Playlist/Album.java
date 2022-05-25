@@ -6,7 +6,7 @@ public class Album {
 
     private String name;
     private String artist;
-    public ArrayList<Song> songs;
+    private ArrayList<Song> songs;
 
     public Album(String name, String artist) {
         this.name = name;
@@ -25,12 +25,11 @@ public class Album {
 
     public boolean addToPlayList(int track, LinkedList<Song> playlist) {
         int trackPosition = 0;
-        Iterator<Song> songIterator = playlist.iterator();
-        while (songIterator.hasNext()) {
+        Iterator<Song> songIterator = songs.iterator();
+        while (track >= 0 && songIterator.hasNext()) {
             Song song = songIterator.next();
-            if (trackPosition == track) {
-                playlist.add(trackPosition, song);
-                System.out.println(song.getTitle());
+            if (trackPosition == track - 1) {
+                playlist.add(song);
                 return true;
             }
             trackPosition++;
@@ -38,9 +37,18 @@ public class Album {
         return false;
     }
 
-//    public boolean addToPlaylist(String songName, LinkedList<Song> playlist) {
-//
-//    }
+    public boolean addToPlayList(String songName, LinkedList<Song> playlist) {
+        Iterator<Song> songIterator = songs.iterator();
+        while (songIterator.hasNext()) {
+            Song song = songIterator.next();
+            if (songName.equals(song.getTitle())) {
+                playlist.add(song);
+                System.out.println(song.getTitle());
+                return true;
+            }
+        }
+        return false;
+    }
 
     private Song findSong(String songName) {
         for (Song song : songs) {
